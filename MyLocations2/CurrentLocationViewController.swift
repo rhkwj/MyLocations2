@@ -30,9 +30,11 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     }
 
     
-    
     let locationManager = CLLocationManager()
     var location: CLLocation?
+    var updatingLocation = false
+    var lastLocationError: Error?
+    
     
     @IBAction func getLocation() {
         
@@ -63,15 +65,23 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     // MARK: - CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("didFailWithError \(error)")
+        if (error as NSError).code == CLError.locationUnknown.rawValue {
+            return
+        }
+        
+        lastLocationError = error
+        
+        stopLocationManager()
+        updateLabels()
+    
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let newLocation = locations.last!
-        print("didUpdateLocations \(newLocation)")
-        
-        location = newLocation
-        updateLabels()
-    }
+    func stopLocationManager() {
+        if updatingLocation {
+            locationManager.stopUpdatingLocation()
+            locationManager.delegate = nil
+            updatingLocation = false
+        } }
     
     func updateLabels() {
         if let location = location {
@@ -84,7 +94,23 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             longitudeLabel.text = ""
             addressLabel.text = ""
             tagButton.isHidden = true
-            messageLabel.text = "Tap 'Get My Location' to Start"
+            // The new code starts here:
+            let statusMessage: String
+            if let error = lastLocationError as NSError? {
+                if error.domain == kCLErrorDomain &&
+                    error.code == CLError.denied.rawValue {
+                    statusMessage = "Location Services Disabled"
+                } else {
+                    statusMessage = "Error Getting Location"
+                }
+            } else if !CLLocationManager.locationServicesEnabled() {
+                statusMessage = "Location Services Disabled"
+            } else if updatingLocation {
+                statusMessage = "Searching..."
+            } else {
+                statusMessage = "Tap 'Get My Location' to Start"
+            }
+            messageLabel.text = statusMessage
         }
     }
 }
