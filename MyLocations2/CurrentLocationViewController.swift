@@ -102,6 +102,10 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         if newLocation.horizontalAccuracy < 0 {
             return
         }
+        var distance = CLLocationDistance(Double.greatestFiniteMagnitude)
+        if let location = location {
+            distance = newLocation.distance(from: location)
+        }
         // 3
         if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy {
             // 4
@@ -113,8 +117,41 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
                 locationManager.desiredAccuracy {
                 print("*** We're done!")
                 stopLocationManager()
+                if distance > 0 {
+                    performingReverseGeocoding = false
+                }
             }
+                
             updateLabels()
+            
+            // The new code begins here:
+            if !performingReverseGeocoding {
+                print("*** Going to geocode")
+                
+                performingReverseGeocoding = true
+                
+                geocoder.reverseGeocodeLocation(newLocation, completionHandler: { placemarks, error in
+                    
+                    self.lastGeocodingError = error
+                    if error == nil, let p = placemarks, !p.isEmpty {
+                        self.placemark = p.last!
+                    } else {
+                        self.placemark = nil
+                    }
+                    self.performingReverseGeocoding = false
+                    self.updateLabels()
+                    
+                if let error = error {
+                        print("*** Reverse Geocoding error: \(error.localizedDescription)")
+                        return
+                    }
+                    
+                    if let places = placemarks {
+                        print("*** Found places: \(places)")
+                    }
+                }) }
+            // End of the new code
+            
         }
     }
     
