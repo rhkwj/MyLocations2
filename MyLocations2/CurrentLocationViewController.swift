@@ -44,14 +44,17 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             locationManager.requestWhenInUseAuthorization()
             return
         }
+        
+        
         if authStatus == .denied || authStatus == .restricted {
             showLocationServicesDeniedAlert()
             return
         }
         
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager.startUpdatingLocation()
+        // New code below, replacing existing code after this point
+        startLocationManager()
+        updateLabels()
+        
     }
     
     // MARK:- Private Methods
@@ -75,6 +78,26 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         updateLabels()
     
     }
+    
+    func locationManager(_ manager: CLLocationManager,
+                         didUpdateLocations locations: [CLLocation]) {
+        let newLocation = locations.last!
+        print("didUpdateLocations \(newLocation)")
+        location = newLocation
+        lastLocationError = nil
+        updateLabels()
+    }
+    
+    func startLocationManager() {
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy =
+            kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+            updatingLocation = true
+        }
+    }
+    
     
     func stopLocationManager() {
         if updatingLocation {
