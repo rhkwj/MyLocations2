@@ -100,27 +100,29 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         if newLocation.timestamp.timeIntervalSinceNow < -5 {
             return
         }
-        // 2
         if newLocation.horizontalAccuracy < 0 {
             return
         }
+        
+        // New section #1
         var distance = CLLocationDistance(Double.greatestFiniteMagnitude)
         if let location = location {
             distance = newLocation.distance(from: location)
         }
-        // 3
+        // End of new section #1
+        
         if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy {
             // 4
             lastLocationError = nil
             location = newLocation
             
             // 5
-            if newLocation.horizontalAccuracy <=
-                locationManager.desiredAccuracy {
+            if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy {
                 print("*** We're done!")
                 stopLocationManager()
-                if distance > 0 {
-                    performingReverseGeocoding = false
+                
+            if distance > 0 {
+                performingReverseGeocoding = false
                 }
             }
                 
@@ -140,20 +142,18 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
                     } else {
                         self.placemark = nil
                     }
+                    
                     self.performingReverseGeocoding = false
                     self.updateLabels()
-                    
-                if let error = error {
-                        print("*** Reverse Geocoding error: \(error.localizedDescription)")
-                        return
-                    }
-                    
-                    if let places = placemarks {
-                        print("*** Found places: \(places)")
-                    }
-                }) }
-            // End of the new code
-            
+                })
+            }
+        } else if distance < 1 {
+            let timeInterval = newLocation.timestamp.timeIntervalSince(location!.timestamp)
+            if timeInterval > 10 {
+                print("*** Force done!")
+                stopLocationManager()
+                updateLabels()
+            }
         }
     }
     
