@@ -29,6 +29,11 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         // Dispose of any resources that can be recreated.
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
