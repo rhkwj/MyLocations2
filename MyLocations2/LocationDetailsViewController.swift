@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import CoreLocation
+
 class LocationDetailsViewController: UITableViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var categoryLabel: UILabel!
@@ -23,3 +25,6 @@ class LocationDetailsViewController: UITableViewController {
         navigationController?.popViewController(animated: true)
     }
 }
+
+var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+var placemark: CLPlacemark?
