@@ -138,8 +138,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Tag Location" id="dgi-Qa-UWI">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="l25-Bk-NS5"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="TbP-eS-S3u"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7RS-F5-yGm">
+                            <connections>
+                                <action selector="cancel" destination="iBn-Y3-cQU" id="ldK-gF-8bK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="TbP-eS-S3u">
+                            <connections>
+                                <action selector="done" destination="iBn-Y3-cQU" id="btJ-Tl-eqs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DcL-An-B6V" userLabel="First Responder" sceneMemberID="firstResponder"/>
