@@ -13,6 +13,7 @@
 		924CA816213F6C19006A8164 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924CA814213F6C19006A8164 /* Main.storyboard */; };
 		924CA818213F6C1E006A8164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 924CA817213F6C1E006A8164 /* Assets.xcassets */; };
 		924CA81B213F6C1E006A8164 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924CA819213F6C1E006A8164 /* LaunchScreen.storyboard */; };
+		92F237532140D1740026473D /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F237522140D1740026473D /* LocationDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		924CA817213F6C1E006A8164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		924CA81A213F6C1E006A8164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		924CA81C213F6C1E006A8164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92F237522140D1740026473D /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				924CA810213F6C19006A8164 /* CurrentLocationViewController.swift */,
 				924CA812213F6C19006A8164 /* SecondViewController.swift */,
 				924CA814213F6C19006A8164 /* Main.storyboard */,
+				92F237522140D1740026473D /* LocationDetailsViewController.swift */,
 				924CA817213F6C1E006A8164 /* Assets.xcassets */,
 				924CA819213F6C1E006A8164 /* LaunchScreen.storyboard */,
 				924CA81C213F6C1E006A8164 /* Info.plist */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92F237532140D1740026473D /* LocationDetailsViewController.swift in Sources */,
 				924CA813213F6C19006A8164 /* SecondViewController.swift in Sources */,
 				924CA80F213F6C19006A8164 /* AppDelegate.swift in Sources */,
 				924CA811213F6C19006A8164 /* CurrentLocationViewController.swift in Sources */,
