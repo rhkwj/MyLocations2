@@ -87,6 +87,7 @@ class LocationDetailsViewController: UITableViewController {
         return text
     }
     
+    
     // MARK: - Table View Delegates
     override func tableView(_ tableView: UITableView,
                             heightForRowAt indexPath: IndexPath) -> CGFloat {
