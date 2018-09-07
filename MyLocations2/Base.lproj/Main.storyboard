@@ -146,7 +146,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Bjc-Wm-Djj" kind="show" id="O9v-Nq-T38"/>
+                                            <segue destination="Bjc-Wm-Djj" kind="show" identifier="PickCategory" id="O9v-Nq-T38"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
