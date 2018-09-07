@@ -20,12 +20,25 @@ private let dateFormatter: DateFormatter = {
 
 class LocationDetailsViewController: UITableViewController {
     
+    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var latitudeLabel: UILabel!
+    @IBOutlet weak var longitudeLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    var placemark: CLPlacemark?
+    var categoryName = "No Category"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         descriptionTextView.text = ""
         categoryLabel.text = ""
         latitudeLabel.text = String(format: "%.8f",coordinate.latitude)
         longitudeLabel.text = String(format: "%.8f",coordinate.longitude)
+        
         if let placemark = placemark {
             addressLabel.text = string(from: placemark)
         } else {
@@ -38,16 +51,7 @@ class LocationDetailsViewController: UITableViewController {
         return dateFormatter.string(from: date)
     }
     
-    @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var latitudeLabel: UILabel!
-    @IBOutlet weak var longitudeLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    
-    var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
-    var placemark: CLPlacemark?
-    var categoryName = "No Category"
+   
     
     // MARK:- Actions
     @IBAction func done() {
@@ -82,6 +86,24 @@ class LocationDetailsViewController: UITableViewController {
         }
         return text
     }
+    
+    // MARK: - Table View Delegates
+    override func tableView(_ tableView: UITableView,
+                            heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            return 88
+        } else if indexPath.section == 2 && indexPath.row == 2 {
+            addressLabel.frame.size = CGSize(
+                width: view.bounds.size.width - 120,
+                height: 10000)
+            addressLabel.sizeToFit()
+            addressLabel.frame.origin.x = view.bounds.size.width -
+                addressLabel.frame.size.width - 16
+            return addressLabel.frame.size.height + 20
+        } else {
+            return 44 }
+    }
+    
 }
 
 var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
