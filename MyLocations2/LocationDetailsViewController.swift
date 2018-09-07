@@ -33,18 +33,6 @@ class LocationDetailsViewController: UITableViewController {
         }
         dateLabel.text = format(date: Date())
     }
-   
-    
-    // MARK:- Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "TagLocation" {
-    let controller = segue.destination as! LocationDetailsViewController
-    controller.coordinate = location!.coordinate
-    controller.placemark = placemark
-      }
-    }
-
-    
     
     func format(date: Date) -> String {
         return dateFormatter.string(from: date)
@@ -56,12 +44,43 @@ class LocationDetailsViewController: UITableViewController {
     @IBOutlet weak var longitudeLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    
+    var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    var placemark: CLPlacemark?
+    var categoryName = "No Category"
+    
     // MARK:- Actions
     @IBAction func done() {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func cancel() {
         navigationController?.popViewController(animated: true)
+    }
+    // MARK:- Prviate Methods
+    func string(from placemark: CLPlacemark) -> String {
+        var text = ""
+        if let s = placemark.subThoroughfare {
+            text += s + " "
+            
+        }
+        if let s = placemark.thoroughfare {
+            text += s + ", "
+        }
+        if let s = placemark.locality {
+            text += s + ", "
+        }
+        if let s = placemark.administrativeArea {
+            text += s + " "
+            
+        }
+        if let s = placemark.postalCode {
+            text += s + ", "
+        }
+        if let s = placemark.country {
+            text += s
+            
+        }
+        return text
     }
 }
 
