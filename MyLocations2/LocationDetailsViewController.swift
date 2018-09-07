@@ -66,7 +66,21 @@ class LocationDetailsViewController: UITableViewController {
         return dateFormatter.string(from: date)
     }
     
-   
+    override func tableView(_ tableView: UITableView,
+                            willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 0 || indexPath.section == 1 {
+            return indexPath
+        }
+        else{
+            return nil
+        }
+    }
+    override func tableView(_ tableView: UITableView,
+                            didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            descriptionTextView.becomeFirstResponder()
+        }
+    }
     
     // MARK:- Actions
     @IBAction func done() {
