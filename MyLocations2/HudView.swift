@@ -40,6 +40,16 @@ class HudView: UIView {
                 y: center.y - round(image.size.height / 2) - boxHeight / 8)
             image.draw(at: imagePoint)
         }
+        
+        // Draw the text
+        let attribs = [
+            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16),
+            NSAttributedStringKey.foregroundColor: UIColor.white ]
+        let textSize = text.size(withAttributes: attribs)
+        let textPoint = CGPoint(
+            x: center.x - round(textSize.width / 2),
+            y: center.y - round(textSize.height / 2) + boxHeight / 4)
+        text.draw(at: textPoint, withAttributes: attribs)
     
     }
 }
