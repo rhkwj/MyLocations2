@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import CoreLocation
 
 class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate {
@@ -17,6 +18,8 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var tagButton: UIButton!
     @IBOutlet weak var getButton: UIButton!
+    
+    var managedObjectContext: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
