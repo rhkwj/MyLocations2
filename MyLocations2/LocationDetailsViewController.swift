@@ -53,7 +53,8 @@ class LocationDetailsViewController: UITableViewController {
         } else {
             addressLabel.text = "No Address Found"
         }
-        dateLabel.text = format(date: Date())
+        //dateLabel.text = format(date: Date())
+        dateLabel.text = format(date: date)
         
         // Hide keyboard
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -106,11 +107,28 @@ class LocationDetailsViewController: UITableViewController {
     @IBAction func done() {
         let hudView = HudView.hud(inView: navigationController!.view, animated: true)
         hudView.text = "Tagged"
-        afterDelay(0.6, run: {
-            hudView.hide()
-            self.navigationController?.popViewController(animated: true)
-        })
+
+        let location = Location(context: managedObjectContext)
+        
+        // 2
+        location.locationDescription = descriptionTextView.text
+        location.category = categoryName
+        location.latitude = coordinate.latitude
+        location.longitute = coordinate.longitude
+        location.date = date as NSDate
+        location.placemark = placemark
+        do {
+            try managedObjectContext.save()
+            afterDelay(0.6) {
+                hudView.hide()
+                self.navigationController?.popViewController(animated: true)
+            }
+        } catch {
+            // 4
+            fatalError("Error: \(error)")
+        }
     }
+    
    
     @IBAction func cancel() {
         navigationController?.popViewController(animated: true)
