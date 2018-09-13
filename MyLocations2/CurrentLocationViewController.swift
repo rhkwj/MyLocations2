@@ -82,7 +82,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         
     }
     
-    // MARK:- Navigation
+    //Your location MARK:- Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TagLocation" {
             let controller = segue.destination as! LocationDetailsViewController
