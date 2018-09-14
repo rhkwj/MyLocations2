@@ -11,6 +11,8 @@ import UIKit
 import CoreData
 import CoreLocation
 
+var locations = [Location]()
+
 class LocationsViewController: UITableViewController {
     var managedObjectContext: NSManagedObjectContext!
     
@@ -30,4 +32,25 @@ class LocationsViewController: UITableViewController {
             addressLabel.text = "Then it works!"
             return cell
         }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // 1
+        let fetchRequest = NSFetchRequest<Location>()
+        // 2
+        let entity = Location.entity()
+        fetchRequest.entity = entity
+        // 3
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        do { // 4
+            locations = try managedObjectContext.fetch(fetchRequest)
+        } catch {
+            fatalCoreDataError(error)
+        }
     }
+    
+    
+    }
+
+
