@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		922AF282214BAF2F00779E65 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922AF281214BAF2F00779E65 /* LocationsViewController.swift */; };
 		924ADA532146A31300530001 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924ADA522146A31300530001 /* Functions.swift */; };
 		924ADA562146A9CD00530001 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 924ADA542146A9CC00530001 /* DataModel.xcdatamodeld */; };
 		924ADA592146B09A00530001 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924ADA572146B09A00530001 /* Location+CoreDataClass.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		922AF281214BAF2F00779E65 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		924ADA522146A31300530001 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		924ADA552146A9CC00530001 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		924ADA572146B09A00530001 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				924CA810213F6C19006A8164 /* CurrentLocationViewController.swift */,
 				924CA812213F6C19006A8164 /* SecondViewController.swift */,
 				924CA814213F6C19006A8164 /* Main.storyboard */,
+				922AF281214BAF2F00779E65 /* LocationsViewController.swift */,
 				92E2975021424CB700672E0C /* HudView.swift */,
 				92F237522140D1740026473D /* LocationDetailsViewController.swift */,
 				924ADA542146A9CC00530001 /* DataModel.xcdatamodeld */,
@@ -163,6 +166,7 @@
 				924ADA562146A9CD00530001 /* DataModel.xcdatamodeld in Sources */,
 				924CA813213F6C19006A8164 /* SecondViewController.swift in Sources */,
 				92E2975121424CB800672E0C /* HudView.swift in Sources */,
+				922AF282214BAF2F00779E65 /* LocationsViewController.swift in Sources */,
 				924ADA5A2146B09A00530001 /* Location+CoreDataProperties.swift in Sources */,
 				924ADA532146A31300530001 /* Functions.swift in Sources */,
 				924CA80F213F6C19006A8164 /* AppDelegate.swift in Sources */,
