@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92207FC821508DE2007040D6 /* LocationCellTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92207FC721508DE2007040D6 /* LocationCellTableViewController.swift */; };
 		922AF282214BAF2F00779E65 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922AF281214BAF2F00779E65 /* LocationsViewController.swift */; };
 		924ADA532146A31300530001 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924ADA522146A31300530001 /* Functions.swift */; };
 		924ADA562146A9CD00530001 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 924ADA542146A9CC00530001 /* DataModel.xcdatamodeld */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92207FC721508DE2007040D6 /* LocationCellTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellTableViewController.swift; sourceTree = "<group>"; };
 		922AF281214BAF2F00779E65 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		924ADA522146A31300530001 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		924ADA552146A9CC00530001 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				924CA812213F6C19006A8164 /* SecondViewController.swift */,
 				924CA814213F6C19006A8164 /* Main.storyboard */,
 				922AF281214BAF2F00779E65 /* LocationsViewController.swift */,
+				92207FC721508DE2007040D6 /* LocationCellTableViewController.swift */,
 				92E2975021424CB700672E0C /* HudView.swift */,
 				92F237522140D1740026473D /* LocationDetailsViewController.swift */,
 				924ADA542146A9CC00530001 /* DataModel.xcdatamodeld */,
@@ -162,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92207FC821508DE2007040D6 /* LocationCellTableViewController.swift in Sources */,
 				92F237532140D1740026473D /* LocationDetailsViewController.swift in Sources */,
 				924ADA562146A9CD00530001 /* DataModel.xcdatamodeld in Sources */,
 				924CA813213F6C19006A8164 /* SecondViewController.swift in Sources */,

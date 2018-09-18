@@ -22,6 +22,18 @@ class LocationsViewController: UITableViewController {
         return locations.count
     }
     
+    // MARK:- Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditLocation" {
+            let controller = segue.destination as! LocationDetailsViewController
+            controller.managedObjectContext = managedObjectContext
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                let location = locations[indexPath.row]
+                controller.locationToEdit = location
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
         UITableViewCell {
             let cell = tableView.dequeueReusableCell(
@@ -44,7 +56,7 @@ class LocationsViewController: UITableViewController {
                 addressLabel.text = ""
             }
             return cell
-        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +76,6 @@ class LocationsViewController: UITableViewController {
     }
     
     
-    }
+}
 
 
