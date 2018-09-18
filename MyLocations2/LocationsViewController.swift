@@ -30,7 +30,7 @@ class LocationsViewController: UITableViewController {
             let descriptionLabel = cell.viewWithTag(100) as! UILabel
             descriptionLabel.text = location.locationDescription
             let addressLabel = cell.viewWithTag(101) as! UILabel
-            if let placemark = location.placemark {
+            if let placemark = location.placemark  {
                 var text = ""
                 if let s = placemark.subThoroughfare {
                     text += s + " " }
