@@ -40,7 +40,21 @@ class LocationDetailsViewController: UITableViewController {
     var date = Date()
     var managedObjectContext: NSManagedObjectContext!
     
-    var locationToEdit: Location?
+    var locationToEdit: Location?{
+        didSet {
+            if let location = locationToEdit {
+                descriptionText = location.locationDescription
+                categoryName = location.category
+                date = location.date
+                coordinate = CLLocationCoordinate2DMake(
+                    location.latitude, location.longitude)
+                placemark = location.placemark
+            }
+        }
+    }
+    
+    
+    
     var descriptionText = ""
     
     override func viewDidLoad() {
@@ -124,8 +138,8 @@ class LocationDetailsViewController: UITableViewController {
         location.locationDescription = descriptionTextView.text
         location.category = categoryName
         location.latitude = coordinate.latitude
-        location.longitute = coordinate.longitude
-        location.date = date as NSDate
+        location.longitude = coordinate.longitude
+        location.date = date as Date
         location.placemark = placemark
         do {
             try managedObjectContext.save()

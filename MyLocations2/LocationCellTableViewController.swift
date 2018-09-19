@@ -15,7 +15,7 @@ class LocationCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     
     func configure(for location: Location) {
-        if (location.locationDescription?.isEmpty)! {
+        if location.locationDescription.isEmpty {
             descriptionLabel.text = "(No Description)"
         }
         else {  descriptionLabel.text = location.locationDescription
@@ -32,7 +32,7 @@ class LocationCell: UITableViewCell {
             addressLabel.text = text
         } else {
             addressLabel.text = String(format:
-                "Lat: %.8f, Long: %.8f",location.latitude, location.longitute)
+                "Lat: %.8f, Long: %.8f",location.latitude, location.longitude)
         }
 
     }
