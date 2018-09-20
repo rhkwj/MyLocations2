@@ -25,7 +25,7 @@ class LocationsViewController: UITableViewController {
         fetchRequest.fetchBatchSize = 20
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: "category", cacheName: "Locations")
     
-//        fetchedResultsController.delegate = self
+        fetchedResultsController.delegate = self
         return fetchedResultsController
     }()
     
@@ -33,6 +33,7 @@ class LocationsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         performFetch()
+        
     }
     // MARK:- Private methods
     func performFetch() {
@@ -44,12 +45,13 @@ class LocationsViewController: UITableViewController {
     }
     
     // MARK:- Navigation
+    // MARK:- Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EditLocation" {
             let controller = segue.destination as! LocationDetailsViewController
             controller.managedObjectContext = managedObjectContext
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
-                let location = locations[indexPath.row]
+                let location = fetchedResultsController.object(at: indexPath)
                 controller.locationToEdit = location
             }
         }
