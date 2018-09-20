@@ -32,6 +32,7 @@ class LocationsViewController: UITableViewController {
     // MARK: - Table View Delegates
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSFetchedResultsController<Location>.deleteCache(withName: "Locations")
         performFetch()
         
     }
@@ -43,8 +44,7 @@ class LocationsViewController: UITableViewController {
             fatalCoreDataError(error)
         }
     }
-    
-    // MARK:- Navigation
+
     // MARK:- Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EditLocation" {
