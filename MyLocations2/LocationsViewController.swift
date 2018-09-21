@@ -45,6 +45,15 @@ class LocationsViewController: UITableViewController {
             fatalCoreDataError(error)
         }
     }
+    
+    override func numberOfSections(in tableView: UITableView)
+        -> Int {return fetchedResultsController.sections!.count }
+    override func tableView(_ tableView: UITableView,
+                            titleForHeaderInSection section: Int) -> String? {
+        let sectionInfo = fetchedResultsController.sections![section]
+        return sectionInfo.name
+    }
+    
 
     // MARK:- Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
