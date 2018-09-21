@@ -344,10 +344,10 @@
             </objects>
             <point key="canvasLocation" x="3230" y="-315"/>
         </scene>
-        <!--View Controller-->
+        <!--Map-->
         <scene sceneID="Jdh-RN-orA">
             <objects>
-                <viewController id="OVt-Cu-iBC" sceneMemberID="viewController">
+                <viewController id="OVt-Cu-iBC" customClass="MapViewController" customModule="MyLocations2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FsY-GB-VzR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -360,10 +360,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="RPD-lX-yj6"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zri-QB-fFv">
+                    <navigationItem key="navigationItem" title="Map" id="zri-QB-fFv">
                         <barButtonItem key="leftBarButtonItem" title="Location" id="Inf-eW-sbN"/>
-                        <barButtonItem key="rightBarButtonItem" title="User" id="MNd-4E-wwd"/>
+                        <barButtonItem key="rightBarButtonItem" title="User" id="MNd-4E-wwd">
+                            <connections>
+                                <action selector="showUser" destination="OVt-Cu-iBC" id="x4Y-dg-ty0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="UYD-0M-l9i" id="QCi-5n-egk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQb-3K-fKf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
