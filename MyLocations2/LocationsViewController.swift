@@ -32,8 +32,9 @@ class LocationsViewController: UITableViewController {
     // MARK: - Table View Delegates
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSFetchedResultsController<Location>.deleteCache(withName: "Locations")
+//        NSFetchedResultsController<Location>.deleteCache(withName: "Locations")
         performFetch()
+        navigationItem.rightBarButtonItem = editButtonItem
         
     }
     // MARK:- Private methods
