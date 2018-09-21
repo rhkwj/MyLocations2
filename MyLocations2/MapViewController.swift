@@ -13,16 +13,6 @@ import CoreData
 
 var locations = [Location]()
 
-// MARK:- Private methods
-func updateLocations() {
-    mapView.removeAnnotations(locations)
-    let entity = Location.entity()
-    let fetchRequest = NSFetchRequest<Location>()
-    fetchRequest.entity = entity
-    locations = try! managedObjectContext.fetch(fetchRequest)
-    mapView.addAnnotations(locations)
-}
-
 
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
@@ -33,6 +23,16 @@ class MapViewController: UIViewController {
             mapView.userLocation.coordinate, 1000, 1000)
         mapView.setRegion(mapView.regionThatFits(region),
                           animated: true)
+    }
+    
+    // MARK:- Private methods
+    func updateLocations() {
+        mapView.removeAnnotations(locations)
+        let entity = Location.entity()
+        let fetchRequest = NSFetchRequest<Location>()
+        fetchRequest.entity = entity
+        locations = try! managedObjectContext.fetch(fetchRequest)
+        mapView.addAnnotations(locations)
     }
 
     override func viewDidLoad() {
