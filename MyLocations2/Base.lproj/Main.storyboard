@@ -370,11 +370,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="UYD-0M-l9i" id="QCi-5n-egk"/>
+                        <segue destination="iBn-Y3-cQU" kind="show" identifier="EditLocation" id="wLG-MC-hGQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQb-3K-fKf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1747.5" y="1121.8309859154929"/>
+            <point key="canvasLocation" x="1631" y="1122"/>
         </scene>
         <!--Locations-->
         <scene sceneID="hBN-Ye-Wef">
@@ -505,6 +506,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kpu-jk-qad"/>
+        <segue reference="wLG-MC-hGQ"/>
     </inferredMetricsTieBreakers>
 </document>

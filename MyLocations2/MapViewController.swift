@@ -70,7 +70,7 @@ class MapViewController: UIViewController {
     }
     
     @objc func showLocationDetails(_ sender: UIButton) {
-        
+        performSegue(withIdentifier: "EditLocation", sender: sender)
     }
     
     
