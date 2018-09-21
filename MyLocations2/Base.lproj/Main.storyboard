@@ -344,6 +344,31 @@
             </objects>
             <point key="canvasLocation" x="3230" y="-315"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Jdh-RN-orA">
+            <objects>
+                <viewController id="OVt-Cu-iBC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FsY-GB-VzR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UYD-0M-l9i">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="RPD-lX-yj6"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zri-QB-fFv">
+                        <barButtonItem key="leftBarButtonItem" title="Location" id="Inf-eW-sbN"/>
+                        <barButtonItem key="rightBarButtonItem" title="User" id="MNd-4E-wwd"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XQb-3K-fKf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1747.5" y="1121.8309859154929"/>
+        </scene>
         <!--Locations-->
         <scene sceneID="hBN-Ye-Wef">
             <objects>
@@ -423,6 +448,7 @@
                     <connections>
                         <segue destination="5F5-XA-kgs" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="6vQ-zz-8SW" kind="relationship" relationship="viewControllers" id="NTo-zI-TlZ"/>
+                        <segue destination="rXI-XB-6cp" kind="relationship" relationship="viewControllers" id="vLM-vK-25N"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -447,6 +473,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rzv-KI-690" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="-320.07042253521126"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="umh-yB-nMQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rXI-XB-6cp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" id="1VH-cx-b2d"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pIr-IO-OEm">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OVt-Cu-iBC" kind="relationship" relationship="rootViewController" id="8Ah-Le-CvL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HhK-sW-RK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="1121.8309859154929"/>
         </scene>
     </scenes>
     <resources>

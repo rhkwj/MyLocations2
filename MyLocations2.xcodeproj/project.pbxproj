@@ -19,6 +19,7 @@
 		924CA816213F6C19006A8164 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924CA814213F6C19006A8164 /* Main.storyboard */; };
 		924CA818213F6C1E006A8164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 924CA817213F6C1E006A8164 /* Assets.xcassets */; };
 		924CA81B213F6C1E006A8164 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924CA819213F6C1E006A8164 /* LaunchScreen.storyboard */; };
+		92A7118D21548D6A005ED4B0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A7118C21548D6A005ED4B0 /* MapKit.framework */; };
 		92E2974F21421E5A00672E0C /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2974E21421E5A00672E0C /* CategoryPickerViewController.swift */; };
 		92E2975121424CB800672E0C /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2975021424CB700672E0C /* HudView.swift */; };
 		92F237532140D1740026473D /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F237522140D1740026473D /* LocationDetailsViewController.swift */; };
@@ -39,6 +40,7 @@
 		924CA817213F6C1E006A8164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		924CA81A213F6C1E006A8164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		924CA81C213F6C1E006A8164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92A7118C21548D6A005ED4B0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		92E2974E21421E5A00672E0C /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
 		92E2975021424CB700672E0C /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		92F237522140D1740026473D /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92A7118D21548D6A005ED4B0 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +65,7 @@
 				924ADA582146B09A00530001 /* Location+CoreDataProperties.swift */,
 				924CA80D213F6C19006A8164 /* MyLocations2 */,
 				924CA80C213F6C19006A8164 /* Products */,
+				92A7118B21548D6A005ED4B0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +96,14 @@
 				924CA81C213F6C1E006A8164 /* Info.plist */,
 			);
 			path = MyLocations2;
+			sourceTree = "<group>";
+		};
+		92A7118B21548D6A005ED4B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92A7118C21548D6A005ED4B0 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +138,11 @@
 				TargetAttributes = {
 					924CA80A213F6C19006A8164 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
