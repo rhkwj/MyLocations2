@@ -11,6 +11,19 @@ import UIKit
 import MapKit
 import CoreData
 
+var locations = [Location]()
+
+// MARK:- Private methods
+func updateLocations() {
+    mapView.removeAnnotations(locations)
+    let entity = Location.entity()
+    let fetchRequest = NSFetchRequest<Location>()
+    fetchRequest.entity = entity
+    locations = try! managedObjectContext.fetch(fetchRequest)
+    mapView.addAnnotations(locations)
+}
+
+
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     var managedObjectContext: NSManagedObjectContext!
@@ -22,9 +35,16 @@ class MapViewController: UIViewController {
                           animated: true)
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateLocations()
+    }
+    
     @IBAction func showLocations() {
     }
 }
 
 extension MapViewController: MKMapViewDelegate {
 }
+
+
