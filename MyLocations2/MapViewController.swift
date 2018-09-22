@@ -16,7 +16,19 @@ var locations = [Location]()
 
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
-    var managedObjectContext: NSManagedObjectContext!
+    var managedObjectContext: NSManagedObjectContext!{
+    didSet {
+    NotificationCenter.default.addObserver(forName:
+    Notification.Name.NSManagedObjectContextObjectsDidChange,
+    object: managedObjectContext,
+    queue: OperationQueue.main) { notification in
+    if self.isViewLoaded {
+        self.updateLocations()
+                }
+            }
+        }
+    }
+    
     // MARK:- Actions
     @IBAction func showUser() {
         let region = MKCoordinateRegionMakeWithDistance(
