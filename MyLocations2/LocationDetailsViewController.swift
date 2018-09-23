@@ -204,6 +204,19 @@ class LocationDetailsViewController: UITableViewController {
     
 }
 
+extension LocationDetailsViewController:
+    UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate {
+    func takePhotoWithCamera() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .camera
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+}
+
 var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
 var placemark: CLPlacemark?
 var categoryName = "No Category"
