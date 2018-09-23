@@ -101,7 +101,6 @@ class LocationDetailsViewController: UITableViewController {
             controller.selectedCategoryName = categoryName
         }
     }
-    
     // MARK:- Image Picker Delegates
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -125,12 +124,17 @@ class LocationDetailsViewController: UITableViewController {
             return nil
         }
     }
+    
+    
     override func tableView(_ tableView: UITableView,
                             didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 && indexPath.row == 0 {
             descriptionTextView.becomeFirstResponder()
+        } else if indexPath.section == 1 && indexPath.row == 0 {
+            takePhotoWithCamera()
         }
     }
+
     
     // MARK:- Actions
     @IBAction func done() {
