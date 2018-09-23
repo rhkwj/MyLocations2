@@ -101,7 +101,16 @@ class LocationDetailsViewController: UITableViewController {
             controller.selectedCategoryName = categoryName
         }
     }
-
+    
+    // MARK:- Image Picker Delegates
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker:
+        UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
     
     func format(date: Date) -> String {
         return dateFormatter.string(from: date)
@@ -214,8 +223,9 @@ extension LocationDetailsViewController:
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
     }
-    
 }
+
+
 
 var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
 var placemark: CLPlacemark?
