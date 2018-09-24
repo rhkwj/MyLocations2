@@ -197,6 +197,14 @@ class LocationDetailsViewController: UITableViewController {
         return text
     }
     
+    func choosePhotoFromLibrary() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
     
     // MARK: - Table View Delegates
     override func tableView(_ tableView: UITableView,
