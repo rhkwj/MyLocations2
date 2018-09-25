@@ -234,6 +234,18 @@ class LocationDetailsViewController: UITableViewController {
         addPhotoLabel.isHidden = true
     }
     
+    func listenForBackgroundNotification() {
+        NotificationCenter.default.addObserver(forName: Notification.Name.UIApplicationDidEnterBackground,
+            object: nil, queue: OperationQueue.main) { _ in
+                
+            if self.presentedViewController != nil {
+               self.dismiss(animated: false, completion: nil)
+            }
+            self.descriptionTextView.resignFirstResponder()
+        }
+    }
+    
+    
     func showPhotoMenu() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let actCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
