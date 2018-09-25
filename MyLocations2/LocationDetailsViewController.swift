@@ -42,6 +42,7 @@ class LocationDetailsViewController: UITableViewController {
     var categoryName = "No Category"
     var date = Date()
     var managedObjectContext: NSManagedObjectContext!
+    var image: UIImage?
     
     var locationToEdit: Location?{
         didSet {
@@ -107,8 +108,15 @@ class LocationDetailsViewController: UITableViewController {
     // MARK:- Image Picker Delegates
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
+        image = info[UIImagePickerControllerEditedImage] as? UIImage
+        if let theImage = image {
+            show(image: theImage)
+        }
+        tableView.reloadData()
         dismiss(animated: true, completion: nil)
     }
+    
+    
     func imagePickerControllerDidCancel(_ picker:
         UIImagePickerController) {
         dismiss(animated: true, completion: nil)
@@ -216,6 +224,14 @@ class LocationDetailsViewController: UITableViewController {
         } else {
             choosePhotoFromLibrary()
         }
+    }
+    
+    
+    func show(image: UIImage) {
+        imageView.image = image
+        imageView.isHidden = false
+        imageView.frame = CGRect(x: 10, y: 10, width: 260, height: 260)
+        addPhotoLabel.isHidden = true
     }
     
     func showPhotoMenu() {
