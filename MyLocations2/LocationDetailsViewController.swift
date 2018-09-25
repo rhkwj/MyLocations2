@@ -28,6 +28,9 @@ class LocationDetailsViewController: UITableViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var addPhotoLabel: UILabel!
+    
     @IBAction func categoryPickerDidPickCategory(_ segue: UIStoryboardSegue) {
         let controller = segue.source as! CategoryPickerViewController
         categoryName = controller.selectedCategoryName
@@ -131,7 +134,8 @@ class LocationDetailsViewController: UITableViewController {
         if indexPath.section == 0 && indexPath.row == 0 {
             descriptionTextView.becomeFirstResponder()
         } else if indexPath.section == 1 && indexPath.row == 0 {
-            choosePhotoFromLibrary()
+            tableView.deselectRow(at: indexPath, animated: true)
+            pickPhoto()
         }
     }
 
@@ -203,6 +207,30 @@ class LocationDetailsViewController: UITableViewController {
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+
+    func pickPhoto() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            showPhotoMenu()
+        } else {
+            choosePhotoFromLibrary()
+        }
+    }
+    
+    func showPhotoMenu() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let actCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(actCancel)
+        let actPhoto = UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+            self.takePhotoWithCamera()
+        })
+        alert.addAction(actPhoto)
+        let actLibrary = UIAlertAction(title: "Choose From Library", style: .default, handler: { _ in
+            self.choosePhotoFromLibrary()
+        })
+        alert.addAction(actLibrary)
+        present(alert, animated: true, completion: nil)
     }
     
     
