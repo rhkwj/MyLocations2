@@ -43,6 +43,7 @@ class LocationDetailsViewController: UITableViewController {
     var date = Date()
     var managedObjectContext: NSManagedObjectContext!
     var image: UIImage?
+    var observer: Any!
     
     var locationToEdit: Location?{
         didSet {
@@ -84,6 +85,13 @@ class LocationDetailsViewController: UITableViewController {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         gestureRecognizer.cancelsTouchesInView = false
         tableView.addGestureRecognizer(gestureRecognizer)
+        
+        listenForBackgroundNotification()
+    }
+    
+    deinit {
+        print("*** deinit \(self)")
+        NotificationCenter.default.removeObserver(observer)
     }
     
     @objc func hideKeyboard(_ gestureRecognizer:
@@ -235,7 +243,7 @@ class LocationDetailsViewController: UITableViewController {
     }
     
     func listenForBackgroundNotification() {
-        NotificationCenter.default.addObserver(forName: Notification.Name.UIApplicationDidEnterBackground,
+        observer = NotificationCenter.default.addObserver(forName: Notification.Name.UIApplicationDidEnterBackground,
             object: nil, queue: OperationQueue.main) { _ in
                 
             if self.presentedViewController != nil {
