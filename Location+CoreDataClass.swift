@@ -31,6 +31,14 @@ public class Location: NSManagedObject, MKAnnotation {
         return UIImage(contentsOfFile: photoURL.path)
     }
     
+    class func nextPhotoID() -> Int {
+        let userDefaults = UserDefaults.standard
+        let currentID = userDefaults.integer(forKey: "PhotoID") + 1
+        userDefaults.set(currentID, forKey: "PhotoID")
+        userDefaults.synchronize()
+        return currentID
+    }
+    
     public var title: String? {
         if locationDescription.isEmpty {
             return "(No Description)"
