@@ -22,6 +22,7 @@
 		92A7118D21548D6A005ED4B0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A7118C21548D6A005ED4B0 /* MapKit.framework */; };
 		92A7118F21549036005ED4B0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A7118E21549036005ED4B0 /* MapViewController.swift */; };
 		92D2E298215BC58100A78644 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E297215BC58100A78644 /* UIImage+Resize.swift */; };
+		92D2E29A215C518800A78644 /* String+AddText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E299215C518800A78644 /* String+AddText.swift */; };
 		92E2974F21421E5A00672E0C /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2974E21421E5A00672E0C /* CategoryPickerViewController.swift */; };
 		92E2975121424CB800672E0C /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2975021424CB700672E0C /* HudView.swift */; };
 		92F237532140D1740026473D /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F237522140D1740026473D /* LocationDetailsViewController.swift */; };
@@ -45,6 +46,7 @@
 		92A7118C21548D6A005ED4B0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		92A7118E21549036005ED4B0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		92D2E297215BC58100A78644 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
+		92D2E299215C518800A78644 /* String+AddText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+AddText.swift"; sourceTree = "<group>"; };
 		92E2974E21421E5A00672E0C /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
 		92E2975021424CB700672E0C /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		92F237522140D1740026473D /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				924CA810213F6C19006A8164 /* CurrentLocationViewController.swift */,
 				924CA812213F6C19006A8164 /* SecondViewController.swift */,
 				924CA814213F6C19006A8164 /* Main.storyboard */,
+				92D2E299215C518800A78644 /* String+AddText.swift */,
 				92A7118E21549036005ED4B0 /* MapViewController.swift */,
 				922AF281214BAF2F00779E65 /* LocationsViewController.swift */,
 				92207FC721508DE2007040D6 /* LocationCellTableViewController.swift */,
@@ -200,6 +203,7 @@
 				924ADA532146A31300530001 /* Functions.swift in Sources */,
 				924CA80F213F6C19006A8164 /* AppDelegate.swift in Sources */,
 				924ADA592146B09A00530001 /* Location+CoreDataClass.swift in Sources */,
+				92D2E29A215C518800A78644 /* String+AddText.swift in Sources */,
 				92E2974F21421E5A00672E0C /* CategoryPickerViewController.swift in Sources */,
 				924CA811213F6C19006A8164 /* CurrentLocationViewController.swift in Sources */,
 			);
