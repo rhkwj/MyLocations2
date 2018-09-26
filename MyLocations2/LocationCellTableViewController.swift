@@ -13,6 +13,7 @@ class LocationCell: UITableViewCell {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var photoImageView: UIImageView!
     
     func configure(for location: Location) {
         if location.locationDescription.isEmpty {
