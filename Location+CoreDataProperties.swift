@@ -24,5 +24,6 @@ extension Location {
     @NSManaged public var date: Date
     @NSManaged public var longitude: Double
     @NSManaged public var category: String
+    @NSManaged public var photoID: NSNumber?
 
 }
