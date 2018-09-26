@@ -416,6 +416,10 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.50540453767123283" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CBZ-Vf-70t">
+                                            <rect key="frame" x="258" y="3" width="46" height="51"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -515,6 +519,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wLG-MC-hGQ"/>
+        <segue reference="kpu-jk-qad"/>
     </inferredMetricsTieBreakers>
 </document>

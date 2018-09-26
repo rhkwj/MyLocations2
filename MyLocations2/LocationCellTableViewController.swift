@@ -36,4 +36,12 @@ class LocationCell: UITableViewCell {
         }
 
     }
+    
+    func thumbnail(for location: Location) -> UIImage {
+        if location.hasPhoto, let image = location.photoImage {
+            return image
+        }
+        return UIImage()
+    }
+    
 }
