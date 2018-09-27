@@ -451,7 +451,7 @@
         <scene sceneID="J3a-Yn-C7r">
             <objects>
                 <navigationController id="6vQ-zz-8SW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Locations" id="mya-pk-RU0"/>
+                    <tabBarItem key="tabBarItem" title="Locations" image="Locations" id="mya-pk-RU0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nH2-hH-cdx">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -487,7 +487,7 @@
         <scene sceneID="4jF-8E-eEu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5F5-XA-kgs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tag" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Tag" image="Tag" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lRx-Bc-7EM">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -506,7 +506,7 @@
         <scene sceneID="umh-yB-nMQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rXI-XB-6cp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="1VH-cx-b2d"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="Map" id="1VH-cx-b2d"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pIr-IO-OEm">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -523,9 +523,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="Locations" width="30" height="30"/>
+        <image name="Map" width="30" height="30"/>
+        <image name="Tag" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mgL-uE-CsV"/>
+        <segue reference="kpu-jk-qad"/>
     </inferredMetricsTieBreakers>
 </document>
