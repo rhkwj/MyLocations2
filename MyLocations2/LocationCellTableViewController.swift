@@ -19,18 +19,17 @@ class LocationCell: UITableViewCell {
         if location.locationDescription.isEmpty {
             descriptionLabel.text = "(No Description)"
         }
-        else {  descriptionLabel.text = location.locationDescription
+        else {
+         descriptionLabel.text = location.locationDescription
         }
+        
         if let placemark = location.placemark {
             var text = ""
-            if let s = placemark.subThoroughfare {
-                text += s + " " }
-            if let s = placemark.thoroughfare {
-                text += s + ", "
-            }
-            if let s = placemark.locality {
-                text += s }
+            text.add(text: placemark.subThoroughfare)
+            text.add(text: placemark.thoroughfare, separatedBy: " ")
+            text.add(text: placemark.locality, separatedBy: ", ")
             addressLabel.text = text
+        
         } else {
             addressLabel.text = String(format:
                 "Lat: %.8f, Long: %.8f",location.latitude, location.longitude)

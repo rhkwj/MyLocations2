@@ -265,16 +265,16 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     }
     
     func string(from placemark: CLPlacemark) -> String {
-        var line1 = ""
-        line1.add(text: placemark.subThoroughfare, separatedBy: "")
-        line1.add(text: placemark.thoroughfare, separatedBy: " ")
-        var line2 = ""
-        line2.add(text: placemark.locality, separatedBy: "")
-        line2.add(text: placemark.administrativeArea,
-                  separatedBy: " ")
-        line2.add(text: placemark.postalCode, separatedBy: " ")
-        line1.add(text: line2, separatedBy: "\n")
-        return line1
+        var line = ""
+        line.add(text: placemark.subThoroughfare)
+        line.add(text: placemark.thoroughfare, separatedBy: " ")
+        line.add(text: placemark.locality, separatedBy: ", ")
+        line.add(text: placemark.administrativeArea,
+                 separatedBy: ", ")
+        line.add(text: placemark.postalCode, separatedBy: " ")
+        line.add(text: placemark.country, separatedBy: ", ")
+        return line
     }
+    
     
 }
