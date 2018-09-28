@@ -376,8 +376,8 @@
                         <viewLayoutGuide key="safeArea" id="RPD-lX-yj6"/>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="zri-QB-fFv">
-                        <barButtonItem key="leftBarButtonItem" title="Location" id="Inf-eW-sbN"/>
-                        <barButtonItem key="rightBarButtonItem" title="User" id="MNd-4E-wwd">
+                        <barButtonItem key="leftBarButtonItem" title="Location" image="Pin" id="Inf-eW-sbN"/>
+                        <barButtonItem key="rightBarButtonItem" title="User" image="User" id="MNd-4E-wwd">
                             <connections>
                                 <action selector="showUser" destination="OVt-Cu-iBC" id="x4Y-dg-ty0"/>
                             </connections>
@@ -525,10 +525,12 @@
     <resources>
         <image name="Locations" width="30" height="30"/>
         <image name="Map" width="30" height="30"/>
+        <image name="Pin" width="24" height="24"/>
         <image name="Tag" width="30" height="30"/>
+        <image name="User" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mgL-uE-CsV"/>
+        <segue reference="wLG-MC-hGQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.88235294117647056" green="0.93333333333333335" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
 </document>
