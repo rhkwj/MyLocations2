@@ -42,7 +42,7 @@ class LocationCell: UITableViewCell {
         if location.hasPhoto, let image = location.photoImage {
             return image.resized(withBounds: CGSize(width: 52, height: 52))
         }
-        return UIImage()
+        return UIImage(named: "No Photo")!
     }
     
 }
