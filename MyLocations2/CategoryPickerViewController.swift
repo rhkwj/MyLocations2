@@ -36,8 +36,7 @@ class CategoryPickerViewController: UITableViewController {
     }
     
     // MARK:- Table View Delegates
-    override func tableView(_ tableView: UITableView,
-                            numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
     
@@ -53,6 +52,9 @@ class CategoryPickerViewController: UITableViewController {
             } else {
                 cell.accessoryType = .none
             }
+        let selection = UIView(frame: CGRect.zero)
+        selection.backgroundColor = UIColor(white: 1.0, alpha: 0.2)
+        cell.selectedBackgroundView = selection
             return cell
     }
     
