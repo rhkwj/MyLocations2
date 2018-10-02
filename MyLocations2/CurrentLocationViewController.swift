@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import CoreLocation
 
-class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate {
+class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate, CAAnimationDelegate {
 
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var latitudeLabel: UILabel!
@@ -71,6 +71,10 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         
         let authStatus = CLLocationManager.authorizationStatus()
         
+        if logoVisible{
+            hideLogoView()
+        }
+        
         if authStatus == .notDetermined {
             locationManager.requestWhenInUseAuthorization()
             return
@@ -104,6 +108,57 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             controller.placemark = placemark
             controller.managedObjectContext = managedObjectContext
         }
+    }
+    
+    // MARK:- Animation Delegate Methods
+    func animationDidStop(_ anim: CAAnimation,
+                          finished flag: Bool) {
+        containerView.layer.removeAllAnimations()
+        containerView.center.x = view.bounds.size.width / 2
+        containerView.center.y = 40 +
+            containerView.bounds.size.height / 2
+        logoButton.layer.removeAllAnimations()
+        logoButton.removeFromSuperview()
+    }
+    
+    func hideLogoView() {
+        if !logoVisible { return }
+        logoVisible = false
+        containerView.isHidden = false
+        containerView.center.x = view.bounds.size.width * 2
+        containerView.center.y = 40 +
+            containerView.bounds.size.height / 2
+        let centerX = view.bounds.midX
+        let panelMover = CABasicAnimation(keyPath: "position")
+        panelMover.isRemovedOnCompletion = false
+        panelMover.fillMode = kCAFillModeForwards
+        panelMover.duration = 0.6
+        panelMover.fromValue = NSValue(cgPoint: containerView.center)
+        panelMover.toValue = NSValue(cgPoint:
+            CGPoint(x: centerX, y: containerView.center.y))
+        panelMover.timingFunction = CAMediaTimingFunction(
+            name: kCAMediaTimingFunctionEaseOut)
+        panelMover.delegate = self
+        containerView.layer.add(panelMover, forKey: "panelMover")
+        let logoMover = CABasicAnimation(keyPath: "position")
+        logoMover.isRemovedOnCompletion = false
+        logoMover.fillMode = kCAFillModeForwards
+        logoMover.duration = 0.5
+        logoMover.fromValue = NSValue(cgPoint: logoButton.center)
+        logoMover.toValue = NSValue(cgPoint:
+            CGPoint(x: -centerX, y: logoButton.center.y))
+        logoMover.timingFunction = CAMediaTimingFunction(
+            name: kCAMediaTimingFunctionEaseIn)
+        logoButton.layer.add(logoMover, forKey: "logoMover")
+        let logoRotator = CABasicAnimation(keyPath:
+            "transform.rotation.z")
+        logoRotator.isRemovedOnCompletion = false
+        logoRotator.fillMode = kCAFillModeForwards
+        logoRotator.duration = 0.5
+        logoRotator.fromValue = 0.0
+        logoRotator.toValue = -2 * Double.pi
+        logoRotator.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        logoButton.layer.add(logoRotator, forKey: "logoRotator")
     }
     
     // MARK:- Private Methods
@@ -282,6 +337,8 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         }
         configureGetButton()
     }
+    
+   
     
     func configureGetButton() {
         if updatingLocation {
