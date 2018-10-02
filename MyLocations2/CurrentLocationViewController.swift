@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import CoreLocation
+import AudioToolbox
 
 class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate, CAAnimationDelegate {
 
@@ -24,6 +25,8 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     
     var managedObjectContext: NSManagedObjectContext!
     
+    var soundID: SystemSoundID = 0
+    
     var logoVisible = false
     lazy var logoButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -38,6 +41,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLabels()
+        loadSoundEffect("Sound.caf")
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -108,6 +112,26 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             controller.placemark = placemark
             controller.managedObjectContext = managedObjectContext
         }
+    }
+    
+    // MARK:- Sound effects
+    func loadSoundEffect(_ name: String) {
+        if let path = Bundle.main.path(forResource: name,ofType: nil) {
+            let fileURL = URL(fileURLWithPath: path, isDirectory: false)
+            let error = AudioServicesCreateSystemSoundID(
+                fileURL as CFURL, &soundID)
+            if error != kAudioServicesNoError {
+                print("Error code \(error) loading sound: \(path)")
+            }
+        }
+        
+    }
+    func unloadSoundEffect() {
+        AudioServicesDisposeSystemSoundID(soundID)
+        soundID = 0
+    }
+    func playSoundEffect() {
+        AudioServicesPlaySystemSound(soundID)
     }
     
     // MARK:- Animation Delegate Methods
@@ -238,6 +262,12 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
                     
                     self.lastGeocodingError = error
                     if error == nil, let p = placemarks, !p.isEmpty {
+                        // New code block
+                        if self.placemark == nil {
+                            print("FIRST TIME!")
+                            self.playSoundEffect()
+                        }
+                        // End new code
                         self.placemark = p.last!
                     } else {
                         self.placemark = nil
@@ -341,10 +371,23 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
    
     
     func configureGetButton() {
+        let spinnerTag = 1000
         if updatingLocation {
             getButton.setTitle("Stop", for: .normal)
+            if view.viewWithTag(spinnerTag) == nil {
+                let spinner = UIActivityIndicatorView(
+                    activityIndicatorStyle: .white)
+                spinner.center = messageLabel.center
+                spinner.center.y += spinner.bounds.size.height/2 + 15
+                spinner.startAnimating()
+                spinner.tag = spinnerTag
+                containerView.addSubview(spinner)
+            }
         } else {
             getButton.setTitle("Get My Location", for: .normal)
+            if let spinner = view.viewWithTag(spinnerTag) {
+                spinner.removeFromSuperview()
+            }
         }
     }
     

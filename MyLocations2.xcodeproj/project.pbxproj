@@ -18,6 +18,7 @@
 		924CA816213F6C19006A8164 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924CA814213F6C19006A8164 /* Main.storyboard */; };
 		924CA818213F6C1E006A8164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 924CA817213F6C1E006A8164 /* Assets.xcassets */; };
 		924CA81B213F6C1E006A8164 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924CA819213F6C1E006A8164 /* LaunchScreen.storyboard */; };
+		9295A73321632BAA007EB0A7 /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9295A73221632BA9007EB0A7 /* Sound.caf */; };
 		92A7118D21548D6A005ED4B0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A7118C21548D6A005ED4B0 /* MapKit.framework */; };
 		92A7118F21549036005ED4B0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A7118E21549036005ED4B0 /* MapViewController.swift */; };
 		92D2E298215BC58100A78644 /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E297215BC58100A78644 /* UIImage+Resize.swift */; };
@@ -43,6 +44,7 @@
 		924CA817213F6C1E006A8164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		924CA81A213F6C1E006A8164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		924CA81C213F6C1E006A8164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9295A73221632BA9007EB0A7 /* Sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sound.caf; sourceTree = "<group>"; };
 		92A7118C21548D6A005ED4B0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		92A7118E21549036005ED4B0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		92D2E297215BC58100A78644 /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		924CA80D213F6C19006A8164 /* MyLocations2 */ = {
 			isa = PBXGroup;
 			children = (
+				9295A73121632BA9007EB0A7 /* Sound */,
 				924CA81C213F6C1E006A8164 /* Info.plist */,
 				924CA80E213F6C19006A8164 /* AppDelegate.swift */,
 				92E2974E21421E5A00672E0C /* CategoryPickerViewController.swift */,
@@ -108,6 +111,14 @@
 				924CA814213F6C19006A8164 /* Main.storyboard */,
 			);
 			path = MyLocations2;
+			sourceTree = "<group>";
+		};
+		9295A73121632BA9007EB0A7 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				9295A73221632BA9007EB0A7 /* Sound.caf */,
+			);
+			path = Sound;
 			sourceTree = "<group>";
 		};
 		92A7118B21548D6A005ED4B0 /* Frameworks */ = {
@@ -183,6 +194,7 @@
 			files = (
 				924CA81B213F6C1E006A8164 /* LaunchScreen.storyboard in Resources */,
 				924CA818213F6C1E006A8164 /* Assets.xcassets in Resources */,
+				9295A73321632BAA007EB0A7 /* Sound.caf in Resources */,
 				924CA816213F6C19006A8164 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
